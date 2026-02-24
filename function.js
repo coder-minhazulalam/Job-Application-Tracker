@@ -19,14 +19,36 @@ function updateAllSections() {
     jobCounting();
 }
 
-// -----------------------------------------------------------------------------------------------------
+// --------------------------
+
+let jobStatusText = document.getElementById("job_status_text");
+
+function updateJobStatusText() {
+
+    let total = allJobs.children.length;
 
 
+    if (!allJobs.classList.contains("hidden")) {
+        jobStatusText.innerText = `${total} jobs`;
+    }
 
+
+    else if (!filterSectionInterview.classList.contains("hidden")) {
+        jobStatusText.innerText = `${interviewList.length} of ${total} jobs`;
+    }
+
+    
+    else if (!filterSectionreject.classList.contains("hidden")) {
+        jobStatusText.innerText = `${rejectlist.length} of ${total} jobs`;
+    }
+}
+//------------------------------------
 
 // total jobs length
 let allJobs = document.getElementById('allJobs');
 let length_of_jobs =  allJobs.children.length;
+    updateJobStatusText();
+
 
 //new array for interview and reject 
 let interviewList = [];
@@ -34,9 +56,12 @@ let rejectlist = []
 
 function jobCounting()
 {
-    allJobsCount.innerText = length_of_jobs;
-    allInterview.innerText = interviewList.length
-    allRejected.innerText = rejectlist.length
+      let currentTotal = allJobs.children.length;
+
+    allJobsCount.innerText = currentTotal;
+    allInterview.innerText = interviewList.length;
+    allRejected.innerText = rejectlist.length;
+
 }
 
 jobCounting()
@@ -91,6 +116,9 @@ function toggleButton(id)
 
 
     }
+
+
+    updateJobStatusText();
 
 }
 
@@ -349,6 +377,8 @@ document.addEventListener("click", function (e) {
 
 
         jobCounting();
+            updateJobStatusText();
+
          filterSectionforInterview();
 
         filterSectionforReject();
