@@ -5,7 +5,6 @@ let allJobsCount = document.getElementById("all_count");
 let allInterview = document.getElementById("interview_Count");
 let allRejected = document.getElementById("rejected_Count");
 
-// -----------------------------------------------------------------------------------------------------
 
 // remove item from array by firstText
 function removeFromArray(arr, title) {
@@ -18,8 +17,6 @@ function updateAllSections() {
     filterSectionforReject();
     jobCounting();
 }
-
-// --------------------------
 
 let jobStatusText = document.getElementById("job_status_text");
 
@@ -204,8 +201,6 @@ allJobs.addEventListener("click" , function(e)
         filterSectionforReject();  
    }
 });
-
-
 
 
 // interview page a selected card add korbo
