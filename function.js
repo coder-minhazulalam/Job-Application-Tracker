@@ -386,6 +386,9 @@ document.addEventListener("click", function (e) {
 
 });
 
+
+
+//
 function jobCounting() {
 
     let currentTotal = allJobs.children.length;
